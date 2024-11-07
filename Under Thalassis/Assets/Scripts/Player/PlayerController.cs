@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Rigidbody2D playerRigidBody;
     [SerializeField] private HealthManager playerHealth;
+    [SerializeField] private TextMeshProUGUI HealthUi;
     private float playerInputVertical;
     private float playerInputHorizontal;
 
@@ -21,6 +23,9 @@ public class PlayerController : MonoBehaviour
 
         MovePlayer();
         RotatePlayer();
+        IsPlayerRunning();
+
+        HealthUi.text = playerHealth.ControllerHealth.ToString();
     }
 
     void MovePlayer()
@@ -38,4 +43,15 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.back, roatationVector);
     }
 
+    void IsPlayerRunning()
+    {
+        if (Input.GetButton("Fire3"))
+        {
+            playerSpeed = 250.0f;
+        }
+        else
+        {
+            playerSpeed = 100.0f;
+        }
+    }
 }

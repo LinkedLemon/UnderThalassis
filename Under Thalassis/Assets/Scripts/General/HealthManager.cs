@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-    [SerializeField] private int ControllerHealth = 100;
+    public int ControllerHealth = 100;
     [SerializeField] private int ControllerMaxHealth = 100;
 
     private void Start()
@@ -35,7 +35,7 @@ public class HealthManager : MonoBehaviour
     }
     bool CheckIfDead()
     {
-        if (ControllerHealth < 0)
+        if (ControllerHealth <= 0)
         {
             return false;
         }
@@ -48,6 +48,6 @@ public class HealthManager : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 1.0f);
     }
 }
