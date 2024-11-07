@@ -6,19 +6,14 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private Rigidbody2D playerRigidBody;
+    [SerializeField] private HealthManager playerHealth;
     private float playerInputVertical;
     private float playerInputHorizontal;
 
     private float playerSpeed = 100.0f;
     private float playerRotation = 100.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         playerInputVertical = Input.GetAxis("Vertical");
@@ -42,4 +37,5 @@ public class PlayerController : MonoBehaviour
 
         transform.Rotate(Vector3.back, roatationVector);
     }
+
 }
