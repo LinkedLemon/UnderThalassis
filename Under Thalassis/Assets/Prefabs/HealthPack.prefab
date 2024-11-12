@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 624210974557306191}
   - component: {fileID: 6733025700295261780}
   - component: {fileID: 5540578488421815057}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthPack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8480794444497732897}
   - component: {fileID: 3415680774729315754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

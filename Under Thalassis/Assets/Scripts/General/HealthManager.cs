@@ -33,7 +33,7 @@ public class HealthManager : MonoBehaviour
         {
             ControllerHealth += healAmount;
         }
-        if (gameObject.name == "player")
+        if (gameObject.name == "Player")
         {
             PickupSfx.Play();
         }

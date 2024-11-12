@@ -34,9 +34,13 @@ public class Bullet : MonoBehaviour
             hitSomething = false;
             collision.gameObject.GetComponent<HealthManager>().TakeDamage(30);
         }
-        else
+        else if (collision.gameObject.layer == 8)
         {
             return;
+        }
+        else
+        {
+            hitSomething = false;
         }
     }
 }
