@@ -6,7 +6,12 @@ public class HealthManager : MonoBehaviour
 {
     public int ControllerHealth = 100;
     [SerializeField] private int ControllerMaxHealth = 100;
-
+    [SerializeField] private AudioSource PickupSfx;
+    [SerializeField] private AudioSource damageSfx;
+    [SerializeField] private ChaseAi chaseAI;
+    public bool isSpawner = false;
+    [SerializeField] private DamageEffect PlayerDamageUi;
+    public bool isDead;
     private void Start()
     {
         ControllerHealth = ControllerMaxHealth;
@@ -28,14 +33,26 @@ public class HealthManager : MonoBehaviour
         {
             ControllerHealth += healAmount;
         }
+        if (gameObject.name == "player")
+        {
+            PickupSfx.Play();
+        }
     }
     public void TakeDamage(int damage)
     {
         ControllerHealth -= damage;
+        if (gameObject.name == "Player")
+        {
+            PlayerDamageUi.StartEffect();
+        }
+        else
+        {
+            damageSfx.Play();
+        }
     }
-    bool CheckIfDead()
+    public bool CheckIfDead()
     {
-        if (ControllerHealth <= 0)
+        if (ControllerHealth < 0)
         {
             return false;
         }
@@ -48,6 +65,20 @@ public class HealthManager : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject, 1.0f);
+        isDead = true;
+        if (gameObject.name != "Player")
+        {
+            GameObject manager = GameObject.Find("EnemyController");
+            manager.GetComponent<EnemyScript>().RemoveToCount();
+        }
+        if (isSpawner)
+        {
+            gameObject.GetComponent<StraightAi>().SpawnChilds();
+        }
+        if (chaseAI != null)
+        {
+            chaseAI.SpawnPickup();
+        }
+        DestroyImmediate(gameObject);
     }
 }

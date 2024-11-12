@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour
     private float playerInputVertical;
     private float playerInputHorizontal;
 
-    private float playerSpeed = 100.0f;
-    private float playerRotation = 100.0f;
+    [SerializeField] private float playerSpeed = 100.0f;
+    [SerializeField] private float playerRotation = 100.0f;
 
 
     void Update()

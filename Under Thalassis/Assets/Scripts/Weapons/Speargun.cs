@@ -6,9 +6,11 @@ using UnityEngine;
 public class Speargun : MonoBehaviour
 {
     [SerializeField] private GameObject BulletPrefab;
+    [SerializeField] private AudioSource shootSfx;
+    [SerializeField] private AudioSource ammoPickupSfx;
     [SerializeField] private TextMeshProUGUI AmmoUI;
     [SerializeField] private int AmmoCount = 5;
-    [SerializeField] private int MaxAmmoCount = 5;
+    [SerializeField] private int MaxAmmoCount = 10;
 
     private void Update()
     {
@@ -25,6 +27,7 @@ public class Speargun : MonoBehaviour
     {
         AmmoCount--;
         Instantiate(BulletPrefab, transform.position, transform.rotation);
+        shootSfx.Play();
     }
 
     public void Reload(int reloadAmmount)
@@ -37,5 +40,6 @@ public class Speargun : MonoBehaviour
         {
             AmmoCount += reloadAmmount;
         }
+        ammoPickupSfx.Play();
     }
 }

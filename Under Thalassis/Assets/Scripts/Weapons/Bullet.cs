@@ -24,6 +24,19 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        hitSomething = false;
+        if (collision.gameObject.layer == 3)
+        {
+            hitSomething = true;
+        }
+        else if (collision.gameObject.layer == 6)
+        {
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            hitSomething = false;
+            collision.gameObject.GetComponent<HealthManager>().TakeDamage(30);
+        }
+        else
+        {
+            return;
+        }
     }
 }
