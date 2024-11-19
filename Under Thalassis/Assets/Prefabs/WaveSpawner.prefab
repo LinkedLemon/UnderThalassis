@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958a2071011899345a8e4f7e04c2d99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyChaserPrefab: {fileID: 8393854122641718413, guid: f16610610acf48342a87e36ad5065e66, type: 3}
-  EnemyStrightPrefab: {fileID: 8099290958524148452, guid: 124f35d610f6d9e4eae540fdebb71c92, type: 3}
+  enemyChaserPrefab: {fileID: 8393854122641718413, guid: f16610610acf48342a87e36ad5065e66, type: 3}
+  enemyStrightPrefab: {fileID: 8099290958524148452, guid: 124f35d610f6d9e4eae540fdebb71c92, type: 3}
+  maxEnemyCount: 20
   timer: 500

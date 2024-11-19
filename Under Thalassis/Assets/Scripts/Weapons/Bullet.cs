@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Bullet : MonoBehaviour
 {
@@ -18,7 +15,7 @@ public class Bullet : MonoBehaviour
     {
         if (hitSomething == true)
         {
-            transform.Translate(transform.up * bulletSpeed * Time.deltaTime, Space.World);
+            transform.Translate(bulletSpeed * Time.deltaTime * transform.up, Space.World);
         }
     }
 

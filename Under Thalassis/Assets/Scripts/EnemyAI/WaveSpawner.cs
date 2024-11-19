@@ -1,26 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject EnemyChaserPrefab;
-    [SerializeField] private GameObject EnemyStrightPrefab;
-    private EnemyScript EnemyManager;
+    [SerializeField] private GameObject enemyChaserPrefab;
+    [SerializeField] private GameObject enemyStrightPrefab;
+    [SerializeField] private int maxEnemyCount;
+    private EnemyScript enemyManager;
     [SerializeField] private int timer = 500;
 
     private void Start()
     {
-        EnemyManager = GameObject.Find("EnemyController").GetComponent<EnemyScript>();
+        enemyManager = GameObject.Find("EnemyController").GetComponent<EnemyScript>();
     }
 
     private void AddChaserEnemy()
     {
-        Instantiate(EnemyChaserPrefab, gameObject.transform);
+        Instantiate(enemyChaserPrefab, gameObject.transform);
     }
     private void AddStrightEnemy()
     {
-        Instantiate(EnemyStrightPrefab, gameObject.transform);
+        Instantiate(enemyStrightPrefab, gameObject.transform);
     }
 void Update()
     {
@@ -28,13 +27,13 @@ void Update()
 
         if (timer < 0)
         {
-            int enemyWeight = Random.Range(10, 20);
+            int enemyWeight = Random.Range(0, 20);
 
-            if (enemyWeight >= 18 && EnemyManager.enemyCount < 10)
+            if (enemyWeight > 10 && enemyManager.enemyCount < maxEnemyCount)
             {
                 AddStrightEnemy();
             }
-            else if (enemyWeight <= 15 && EnemyManager.enemyCount < 10)
+            else if (enemyWeight < 10 && enemyManager.enemyCount < maxEnemyCount)
             {
                 AddChaserEnemy();
             }

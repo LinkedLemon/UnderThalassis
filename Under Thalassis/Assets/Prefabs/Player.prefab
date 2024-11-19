@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6521231989337005051}
-  Health: {fileID: 6091345071065779142}
+  health: {fileID: 0}
 --- !u!1 &342598636671656511
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,12 +589,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a28a370d04ca654f84ac7009f498b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 1254698503168182139, guid: d8a4f446c58a8824fb52c7292e01da58, type: 3}
+  bulletPrefab: {fileID: 1254698503168182139, guid: d8a4f446c58a8824fb52c7292e01da58, type: 3}
   shootSfx: {fileID: 3081543097601414373}
   ammoPickupSfx: {fileID: 2347169369845573357}
-  AmmoUI: {fileID: 1722767417094472874}
-  AmmoCount: 20
-  MaxAmmoCount: 30
+  ammoUI: {fileID: 1722767417094472874}
+  ammoCount: 30
+  maxAmmoCount: 30
 --- !u!1 &1056613822005876018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,7 +1205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidBody: {fileID: 4884666199059786100}
   playerHealth: {fileID: 6091345071065779142}
-  HealthUi: {fileID: 1751642263686225122}
+  healthUi: {fileID: 1751642263686225122}
   playerSpeed: 100
   playerRotation: 200
 --- !u!50 &4884666199059786100
@@ -1247,13 +1247,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328fd2589946b3743a4b202b4e1da09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ControllerHealth: 100
-  ControllerMaxHealth: 100
-  PickupSfx: {fileID: 436081955232614815}
+  controllerHealth: 100
+  controllerMaxHealth: 100
+  pickupSfx: {fileID: 436081955232614815}
   damageSfx: {fileID: 0}
   chaseAI: {fileID: 0}
   isSpawner: 0
-  PlayerDamageUi: {fileID: 5014929567249076244}
+  playerDamageUi: {fileID: 5014929567249076244}
   isDead: 0
 --- !u!58 &5237098034358839065
 CircleCollider2D:
@@ -1302,7 +1302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606a220b4a83ca8479692cf5150e69a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BubblePartical: {fileID: 767324869110902452, guid: 1050b404715f7c8468738b1d6f515566, type: 3}
+  bubblePartical: {fileID: 767324869110902452, guid: 1050b404715f7c8468738b1d6f515566, type: 3}
   bubbleSfx: {fileID: 1339066423978436186}
 --- !u!81 &123663349321225877
 AudioListener:

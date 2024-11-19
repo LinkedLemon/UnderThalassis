@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class DamageArea : MonoBehaviour
 {
-    [SerializeField] private int DamageFieldAmount = 1;
+    [SerializeField] private int damageFieldAmount = 1;
     private int timer = 200;
-    private EnemyScript EnemyManager;
+    private EnemyScript enemyManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,7 +12,7 @@ public class DamageArea : MonoBehaviour
         {
             if (collision.gameObject.name == "Player" && collision.gameObject.layer == 3)
             {
-                collision.gameObject.GetComponent<HealthManager>().TakeDamage(DamageFieldAmount); ;
+                collision.gameObject.GetComponent<HealthManager>().TakeDamage(damageFieldAmount); ;
             }
             Timeout();
         }

@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem BubblePartical;
+    [SerializeField] private ParticleSystem bubblePartical;
     [SerializeField] private AudioSource bubbleSfx;
-    private ParticleSystem BubbleInstance;
 
     private int timer = 500;
     private void Update()
@@ -25,7 +22,7 @@ public class Bubble : MonoBehaviour
 
     private void SpawnParticales()
     {
-        BubbleInstance = Instantiate(BubblePartical, transform.position, Quaternion.identity);
+        ParticleSystem _bubbleInstance = Instantiate(bubblePartical, transform.position, Quaternion.identity);
         bubbleSfx.Play();
     }
 }

@@ -1,14 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private Rigidbody2D playerRigidBody;
     [SerializeField] private HealthManager playerHealth;
-    [SerializeField] private TextMeshProUGUI HealthUi;
+    [SerializeField] private TextMeshProUGUI healthUi;
     private float playerInputVertical;
     private float playerInputHorizontal;
 
@@ -25,9 +24,15 @@ public class PlayerController : MonoBehaviour
         RotatePlayer();
         IsPlayerRunning();
 
-        HealthUi.text = playerHealth.ControllerHealth.ToString();
+        healthUi.text = playerHealth.controllerHealth.ToString();
+
+        
     }
 
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     void MovePlayer()
     {
         float movementVector = (playerInputVertical * playerSpeed) * Time.deltaTime;

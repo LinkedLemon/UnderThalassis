@@ -1,20 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-    public int ControllerHealth = 100;
-    [SerializeField] private int ControllerMaxHealth = 100;
-    [SerializeField] private AudioSource PickupSfx;
+    public int controllerHealth = 100;
+    [SerializeField] private int controllerMaxHealth = 100;
+    [SerializeField] private AudioSource pickupSfx;
     [SerializeField] private AudioSource damageSfx;
     [SerializeField] private ChaseAi chaseAI;
     public bool isSpawner = false;
-    [SerializeField] private DamageEffect PlayerDamageUi;
+    [SerializeField] private DamageEffect playerDamageUi;
     public bool isDead;
     private void Start()
     {
-        ControllerHealth = ControllerMaxHealth;
+        controllerHealth = controllerMaxHealth;
     }
     void Update()
     {
@@ -25,25 +23,25 @@ public class HealthManager : MonoBehaviour
     }
     public void Heal(int healAmount)
     {
-        if ((ControllerHealth + healAmount) > ControllerMaxHealth)
+        if ((controllerHealth + healAmount) > controllerMaxHealth)
         {
-            ControllerHealth = ControllerMaxHealth;
+            controllerHealth = controllerMaxHealth;
         }
         else
         {
-            ControllerHealth += healAmount;
+            controllerHealth += healAmount;
         }
         if (gameObject.name == "Player")
         {
-            PickupSfx.Play();
+            pickupSfx.Play();
         }
     }
     public void TakeDamage(int damage)
     {
-        ControllerHealth -= damage;
+        controllerHealth -= damage;
         if (gameObject.name == "Player")
         {
-            PlayerDamageUi.StartEffect();
+            playerDamageUi.StartEffect();
         }
         else
         {
@@ -52,7 +50,7 @@ public class HealthManager : MonoBehaviour
     }
     public bool CheckIfDead()
     {
-        if (ControllerHealth < 0)
+        if (controllerHealth < 0)
         {
             return false;
         }

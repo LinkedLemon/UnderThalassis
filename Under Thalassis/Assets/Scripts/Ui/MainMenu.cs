@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject Options;
-    [SerializeField] private GameObject LevelSelect;
+    [SerializeField] private GameObject options;
+    [SerializeField] private GameObject levelSelect;
 
     public void Quit()
     {
@@ -20,11 +18,11 @@ public class MainMenu : MonoBehaviour
 
     public void SettingsToggle()
     {
-        Options.SetActive(!Options.activeInHierarchy);
+        options.SetActive(!options.activeInHierarchy);
     }
     public void LevelToggle()
     {
-        LevelSelect.SetActive(!LevelSelect.activeInHierarchy);
+        levelSelect.SetActive(!levelSelect.activeInHierarchy);
     }
 
 }

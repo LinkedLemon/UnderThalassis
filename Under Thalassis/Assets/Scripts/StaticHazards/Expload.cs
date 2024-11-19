@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Expload : MonoBehaviour
 {
     [SerializeField] private CircleCollider2D exploadCollider;
     [SerializeField] private CircleCollider2D hitboxCollider;
+    private float deathTime = 2.0f;
 
     private void Start()
     {
@@ -14,8 +13,8 @@ public class Expload : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        exploadCollider.enabled=true;
-        Destroy(gameObject, 2f);
+        exploadCollider.enabled = true;
+        Destroy(gameObject, deathTime);
     }
 }
 

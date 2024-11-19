@@ -1,25 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 
 public class ChaseAi : MonoBehaviour
 {
 
     private GameObject player; // Reference to the player's transform
-    private GameObject EnemyController;
+    private GameObject enemyController;
     public float speed = 5f; // Speed at which the AI will chase the player
     public float stoppingDistance = 1f; // Distance at which the AI will stop chasing
     [SerializeField] private HealthManager healthManager;
     [SerializeField] private GameObject healthPickup;
     [SerializeField] private GameObject ammoPickup;
+    [SerializeField] private float scoreDropAmount = 100;
 
     private void Start()
     {
         player = GameObject.Find("Player");
-        EnemyController = GameObject.Find("EnemyController");
-        EnemyController.GetComponent<EnemyScript>().AddToCount();
+        enemyController = GameObject.Find("EnemyController");
+        enemyController.GetComponent<EnemyScript>().AddToCount();
         speed = speed + Random.Range(-1.2f, 1.5f);
     }
     void Update()
@@ -36,7 +33,7 @@ public class ChaseAi : MonoBehaviour
                 Vector3 direction = (player.transform.position - transform.position).normalized;
 
                 // Move the AI towards the player
-                transform.position += direction * speed * Time.deltaTime;
+                transform.position += speed * Time.deltaTime * direction;
 
                 // Optionally, make the AI face the player
                 transform.up = player.transform.position - transform.position;
@@ -44,9 +41,21 @@ public class ChaseAi : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (GameObject.Find("ScoreManager") != null)
+        {
+            if (GameObject.Find("ScoreManager").TryGetComponent<ScoreManager>( out ScoreManager Score))
+            {
+                Score.AddToScore(scoreDropAmount);
+            }
+        }
+
+
+    }
     public void SpawnPickup()
     {
-        int random = Random.Range(0, 2);
+        int random = Random.Range(0, 3);
 
         if (gameObject.name != "Player")
         {

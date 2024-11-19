@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42cf429472ecdf245be670e0292e451a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageFieldAmount: 25
+  damageFieldAmount: 5
 --- !u!61 &3155614837625893134
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -455,6 +455,7 @@ MonoBehaviour:
   healthManager: {fileID: 6091072720362952957}
   healthPickup: {fileID: 2096271987646105335, guid: a39832e0e1848f1409a12a14d203f697, type: 3}
   ammoPickup: {fileID: 3765887781066276438, guid: 5dec7243f3b4d9e42b4a2466dcba31aa, type: 3}
+  scoreDropAmount: 100
 --- !u!50 &5234347221260355933
 Rigidbody2D:
   serializedVersion: 4
@@ -494,13 +495,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328fd2589946b3743a4b202b4e1da09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ControllerHealth: 15
-  ControllerMaxHealth: 15
-  PickupSfx: {fileID: 0}
+  controllerHealth: 15
+  controllerMaxHealth: 15
+  pickupSfx: {fileID: 0}
   damageSfx: {fileID: 5691941368233810678}
   chaseAI: {fileID: 5914497858377252652}
   isSpawner: 0
-  PlayerDamageUi: {fileID: 0}
+  playerDamageUi: {fileID: 0}
   isDead: 0
 --- !u!61 &8042100208957613832
 BoxCollider2D:
